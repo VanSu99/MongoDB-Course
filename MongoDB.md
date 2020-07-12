@@ -8,34 +8,34 @@
               
 ### XEM CAC DATABASE TRONG SYSTEM
 
-show dbs
+    show dbs
 
 ### TAO 1 DATABASE
 
-use ten_database
+    use ten_database
 
 ### SU DUNG DATABASE
 
-use ten_db
+    use ten_db
 
 ### XEM DATBASE DANG SU DUNG (current database)
 
-db
+    db
 
 ### XOA DATABASE DANG SU DUNG
 
-db.dropDatabase()
+    db.dropDatabase()
 
 
 ### XEM TAT CA CAC COLLECTION CO TRONG DATABASE
 
 📌 Collection co kieu du lieu la 1 Array.
 
-show collections
+    show collections
 
 ### TAO COLLECTION
 
-db.createCollection(collectionName, option)
+    db.createCollection(collectionName, option)
 
 Vi du: db.createCollection("admin",{validator:{$or:[{name: {$type:
  "string" }},{password: {$type: "string"}},{email: { $regex: "/@gmail\.com"}}]}}
@@ -45,7 +45,7 @@ Vi du: db.createCollection("admin",{validator:{$or:[{name: {$type:
 
 ### XOA COLLECTION
 
-db.collectionName.drop()
+    db.collectionName.drop()
 
 ### THEM (INSERT) DU LIEU VAO COLLECTION
 
@@ -57,7 +57,7 @@ MongoDB đã cung cấp cho chúng ta 3 phương thức để thực hiện vi�
 
 📌 Insert : Phương thức insert trong MongoDB dùng để thêm mới một hoặc nhiều dữ liệu vào trong MongoDB.
 
-db.conlectionName.insert(data)
+    db.conlectionName.insert(data)
 
 => Trong do, data co the la 1 Object chua cai Field va gia tri tuong ung.
 
@@ -69,29 +69,29 @@ Vi du: db.admin.insert({
 
 📌 insertOne : Phương thức insertOne trong MongoDB có tác dụng cho phép chúng ta insert một dữ liệu vào trong MongoDB trên một lần khai báo.
 
-db.collectionName.insertOne(data)
+    db.collectionName.insertOne(data)
 
 📌 insertMany : Phương thức insertMany cho phép chúng ta thêm mới nhiều dữ liệu vào trong MongoDB.
 
-db.collectionName.insertMany(data)
+    db.collectionName.insertMany(data)
 
 ### TRUY VAN DU LIEU TRONG MONGODB
 
 ###  LAY TAT CA DU LIEU TRONG COLLECTION
 
-db.collectionName.find()
+    db.collectionName.find()
 
 => Du lieu tra ve se la 1 Object.
 
 - Nếu như bạn muốn dữ liệu được trả về được hiển thị theo cấu trúc đã được định sẵn thì chỉ cần thêm hàm pretty() vào phía sau hàm find().
 
-db.collectionName.find().pretty()
+    db.collectionName.find().pretty()
 
 ### TRUY VAN DU LIEU CO DIEU KIEN TRONG MONGODB
 
 Để truy vấn có điều kiện trong MongoDB thì bạn cũng sử dụng cú pháp tương tự như phần 1, nhưng lúc này chúng ta sẽ chèn thêm điều kiện vào trong hàm find().
 
-db.collection.find(condition)
+    db.collection.find(condition)
 
 => Trong do, condition la 1 Object chua cac menh de dieu kien
 
