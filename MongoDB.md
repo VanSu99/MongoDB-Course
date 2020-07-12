@@ -25,10 +25,6 @@
 ### XOA DATABASE DANG SU DUNG
 
     db.dropDatabase()
-<<<<<<< HEAD
-=======
-
->>>>>>> 62a6febe01fea945ebe048872f5442d4ce29102b
 
 ### XEM TAT CA CAC COLLECTION CO TRONG DATABASE
 
@@ -224,10 +220,15 @@ Vi du:
     )
 
 Trong do:
+
     + filter là một object chứa các tiêu chí lựa chọn bản ghi update (sử dụng cú pháp selector).
+
     + update là object chứa dữ liệu sửa đổi trên bản ghi.
-    + upsert là một boolean cấu hình điều gì sẽ xảy ra khi không có bản khi khớp với filter. Nếu upsert = true thì nó sẽ thêm mới bản ghi đó nếu không có bản ghi nào khớp với filter và sẽ không có điều gì xảy ra nếu upsert = false. Mặc định thì upsert = false.
+
+    + upsert là một boolean cấu hình điều gì sẽ xảy ra khi không có bản khi khớp với filter. Nếu upsert = true thì nó sẽ thêm mới bản ghi đó 
+    nếu không có bản ghi nào khớp với filter và sẽ không có điều gì xảy ra nếu upsert = false. Mặc định thì upsert = false.
     + writeConcern là một document chứa write concern.
+    
     + collation là một document chứa các quy tắc.
 
 Vi du:
@@ -289,9 +290,13 @@ db.admin.updateOne(
     )
 
 Trong do:
+
     + query là object (hay còn gọi là document) chứa các câu truy vấn để lọc dữ liệu.
+
     + justOne là tham số cấu hình số lượng bản ghi có thể xóa khi query thực thi khớp.
+
         - Nếu justOne: true thì nó sẽ chỉ xóa 1 bản ghi duy nhất.
+
         - Nếu justOne: false thì nó sẽ xóa tất cả các bản ghi khớp với điều kiện query.
 
 Vi du:
@@ -303,7 +308,7 @@ Vi du:
         age: 18
     }
     )
-    
 
 
-HAPPY CODING ️🎉️🎉️🎉
+
+### HAPPY CODING ️🎉️🎉️🎉
