@@ -25,6 +25,10 @@
 ### XOA DATABASE DANG SU DUNG
 
     db.dropDatabase()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 62a6febe01fea945ebe048872f5442d4ce29102b
 
 ### XEM TAT CA CAC COLLECTION CO TRONG DATABASE
 
@@ -205,7 +209,101 @@ Vi du:
 
 ### UPDATE DU LIEU TRONG MONGODB
 
+### 🎯 SUA DOI MOT BAN GHI TRONG MONGODB
 
++ Để sửa đổi một bản ghi duy nhất trong MongoDB thì các bạn sử dụng phương thức updateOne()
+
+    db.collectionName.updateOne(
+        filter,
+        update,
+        {
+            upsert: <boolean>,
+            writeConcern: <document>
+            collation: <document>,
+        }
+    )
+
+Trong do:
+    + filter là một object chứa các tiêu chí lựa chọn bản ghi update (sử dụng cú pháp selector).
+    + update là object chứa dữ liệu sửa đổi trên bản ghi.
+    + upsert là một boolean cấu hình điều gì sẽ xảy ra khi không có bản khi khớp với filter. Nếu upsert = true thì nó sẽ thêm mới bản ghi đó nếu không có bản ghi nào khớp với filter và sẽ không có điều gì xảy ra nếu upsert = false. Mặc định thì upsert = false.
+    + writeConcern là một document chứa write concern.
+    + collation là một document chứa các quy tắc.
+
+Vi du:
+-  Sửa name của admin có tuổi = 28 thành Thor.
+
+    db.admin.updateOne(
+        {age: 28},
+        {
+            $set: {
+                name: "Thor"
+            }
+        }
+    )
+
+### 🎯 SUA DOI NHIEU BAN GHI TRONG MONGODB
+
+Vi du:
+- Sửa name của admin có name = "Iron Man" thành 'Hulk'.
+
+    db.admin.updateMany(
+        {name: "Iron Man"},
+        {
+            $set: {
+                name: "Hulk"
+            }
+        }
+    )
+
+### 🎯 SUA DOI BAN GHI TRONG MONGODB
+
+Vi du: 
+- Sửa đổi name của một bản ghi duy nhất có name là "Hulk" thành "SuperSoi".
+
+db.admin.updateOne(
+    {name: "SuperSoi"},
+    {
+        $set: {
+            name: "Hulk"
+        }
+    },
+    {
+        multi : false
+    }
+)
+
++ multi là một boolean cấu hình xem có cho phép sửa đổi nhiều bản ghi hay không, multi bằng true là cho phép và ngược lại bằng false thì là không. Mặc định thì thuộc tính này có giá trị là false.
+
+### XOA DU LIEU MONGODB
+
+- Để có thể xóa dữ liệu trong MongoDB thì các banj sử dụng phương thức remove() 
+
+    db.collectionName.remove(
+    query,
+    {
+        justOne: <boolean>,
+        writeConcern: <document>,
+        collation: <document>
+    }
+    )
+
+Trong do:
+    + query là object (hay còn gọi là document) chứa các câu truy vấn để lọc dữ liệu.
+    + justOne là tham số cấu hình số lượng bản ghi có thể xóa khi query thực thi khớp.
+        - Nếu justOne: true thì nó sẽ chỉ xóa 1 bản ghi duy nhất.
+        - Nếu justOne: false thì nó sẽ xóa tất cả các bản ghi khớp với điều kiện query.
+
+Vi du:
+- Xóa một admin có name = "Toidicode" và có age = 18.
+
+    db.admin.remove(
+    {
+        name: "Toidicode",
+        age: 18
+    }
+    )
+    
 
 
 HAPPY CODING ️🎉️🎉️🎉
